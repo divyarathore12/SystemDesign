@@ -13,7 +13,7 @@ public class Loggger {
                 }
             }
         }
-        return instance
+        return instance;
     }
     public void log(string message)
     {
