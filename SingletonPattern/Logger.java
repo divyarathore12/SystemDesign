@@ -15,7 +15,7 @@ public class Loggger {
         }
         return instance;
     }
-    public void log(string message)
+    public void log(String message)
     {
         System.out.println("Log: "+message);
     }
