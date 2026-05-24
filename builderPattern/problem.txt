@@ -1,0 +1,37 @@
+🚀 Builder Pattern Problem Statement (Interview Style)
+
+You are designing an online food delivery system.
+
+The system allows restaurants to create customizable food orders.
+
+Each FoodOrder must have:
+
+✅ Mandatory fields
+orderId
+customerName
+✅ Optional fields
+extraCheese
+extraSpicy
+addColdDrink
+addDessert
+couponCode
+deliveryInstructions
+giftWrap
+priorityDelivery
+
+❌ Current Problem
+
+Developers are creating huge constructors like:
+
+FoodOrder(orderId, customerName, extraCheese,
+          extraSpicy, addColdDrink,
+          addDessert, couponCode,
+          deliveryInstructions,
+          giftWrap, priorityDelivery)
+
+This is causing:
+
+unreadable code
+incorrect parameter ordering
+maintenance difficulty
+hard-to-understand object creation
