@@ -1,0 +1,82 @@
+Adapter Pattern Problem Statement
+💳 Multi Payment Gateway Integration System
+
+You are building a backend service for an e-commerce platform.
+
+Currently, your application supports only one internal payment system using this interface:
+
+interface PaymentProcessor {
+    void pay(double amount);
+}
+
+Your entire checkout flow depends on:
+
+pay(amount)
+🚨 New Business Requirement
+
+The company now wants to integrate multiple third-party payment providers:
+
+Razorpay
+Stripe
+PayPal
+
+But each provider has different APIs.
+
+✅ Third-Party APIs
+Razorpay SDK
+class RazorpayAPI {
+    void makePayment(double amount)
+}
+Stripe SDK
+class StripeAPI {
+    void chargeCard(double amount)
+}
+PayPal SDK
+class PaypalAPI {
+    void sendMoney(double amount)
+}
+❌ Problem
+
+Your checkout service should NOT know:
+
+makePayment()
+chargeCard()
+sendMoney()
+
+It should only work with:
+
+pay(amount)
+✅ Task
+
+Design the system such that:
+
+existing checkout code does not change
+all third-party gateways become compatible
+adding future gateways should be easy
+business logic remains loosely coupled
+🎯 Requirements
+
+Implement:
+
+common interface
+adapters for each gateway
+client code using only common interface
+🔥 Expected Outcome
+
+This should work:
+
+PaymentProcessor processor =
+        new RazorpayAdapter();
+
+processor.pay(5000);
+
+without client knowing internal SDK details.
+
+🚀 Bonus (Optional)
+
+Later extend system to:
+
+dynamically choose payment gateway
+fallback to another gateway on failure
+
+(That’s where Strategy Pattern can come next.)

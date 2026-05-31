@@ -1,0 +1,58 @@
+Parking Lot LLD Interview Problem
+
+Design a Parking Lot system for a commercial building.
+
+The parking lot has multiple floors, and each floor contains multiple parking spots.
+
+The system should support the following functionality:
+
+Requirements
+Vehicles can enter the parking lot.
+When a vehicle enters:
+The system should find an appropriate parking spot.
+A parking ticket should be generated.
+Vehicles can exit the parking lot.
+When a vehicle exits:
+The parking ticket should be validated.
+Parking charges should be calculated based on the duration of parking.
+The parking spot should become available again.
+The parking lot should support multiple vehicle types:
+Bike
+Car
+Truck
+Different parking spot types exist:
+Bike Spot
+Car Spot
+Truck Spot
+A vehicle can only park in a compatible parking spot.
+The system should be able to:
+Display available spots
+Display occupied spots
+Assumptions
+
+You may make reasonable assumptions wherever necessary.
+
+For this round, focus on:
+
+Object-oriented design
+Extensibility
+Maintainability
+Clean code
+
+Do not worry about:
+
+Database
+APIs
+Distributed systems
+UI
+Follow-up Requirements (Do NOT Design Yet)
+
+After your initial design, I may ask you to support:
+
+EV charging spots
+Reserved parking
+VIP parking
+Different pricing strategies
+Multiple entry/exit gates
+
+So keep extensibility in mind.

@@ -1,0 +1,90 @@
+
+Discovering Domain
+----------------------
+entities
+Gate, vehical,parkingLot,floor,spots,paymentWay,ticket
+
+
+
+RelationShips
+-------------------------
+parkingLot has floor and Gate
+floor has spots
+spots  occupied current vehicals
+ticktet contains spot + vehical (this time we are not taking price becuase we calculate price 
+in the end)
+one ticket has one vehical (one to one)
+
+
+Responsibilites
+--------------------
+
+first request will go to gate then gate transfer to parkingLot
+
+findingSpot -- parkingLot
+
+1. parking lot loop all floor and all spots (parking lot have all ownership)
+2. parking lot -> floor -> find spot
+
+flow till now
+
+vehical arrived
+   |
+request goes to Entery gate/ parkingLot
+   |
+parkingLot.findFloor();
+   |
+floor.findSpot();
+   |
+spot.isAvailable();
+
+but spot can be vary here 
+sp spot can be bike ,car,Truck
+
+
+
+final 
+Vehicle arrives
+
+↓
+
+ParkingLot.findSpot(vehicle)
+
+↓
+
+For each Floor
+
+↓
+
+Floor.findSpot(vehicle)
+
+↓
+
+For each Spot
+
+↓
+
+spot.canPark(vehicle) // plymorphism not strategy 
+&&
+spot.isAvailable()
+
+↓
+
+return spot
+
+NOW who will generate ticket ?
+parking lot should do this becuase that has information of spot if it gets availability then it should generate ticket 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
