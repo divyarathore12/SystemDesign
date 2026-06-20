@@ -75,6 +75,162 @@ return spot
 NOW who will generate ticket ?
 parking lot should do this becuase that has information of spot if it gets availability then it should generate ticket 
 
+so overall flow according to my understanding for parking lot
+ entities
+ vehical
+ gate
+ payment
+ parkingLot
+ floor
+ spots
+ pricingStrategry
+ spotAssigningStrategy
+
+ ownership
+ parkVehical -> parkingLot
+   |
+  1. finding spot -> got to floor
+
+    |
+ 2. go to spot 
+
+ findSpot() vai using some strategy
+ assignSpot and complete or fill the spot
+
+ after once we got spot 
+
+ then parkingLot generate ticket
+ using spot information and time
+
+
+
+
+ exitVehical() this is owned by parkingLot
+ in this 
+
+ then parkingLot calucate price using pricingStrategy it can weekendPricing , hourly pricing 
+
+ after calucation of price
+ spot own removeVehical() feature
+
+
+
+
+
+ 
+final
+---------------
+
+Vehicle arrives
+
+↓
+
+ParkingLot.parkVehicle(vehicle)
+
+↓
+
+SpotAssignmentStrategy.findSpot(vehicle, floors)
+
+↓
+
+returns ParkingSpot
+
+↓
+
+ParkingSpot.assignVehicle(vehicle)
+
+↓
+
+ParkingLot.generateTicket(vehicle, spot)
+
+↓
+
+Return Ticket
+
+and
+
+Vehicle exits
+
+↓
+
+ParkingLot.exitVehicle(ticket)
+
+↓
+
+PricingStrategy.calculatePrice(ticket)
+
+↓
+
+Payment completed
+
+↓
+
+ParkingSpot.release()
+
+↓
+
+Spot becomes available
+ 
+ ParkingLot
+parkVehicle()
+exitVehicle()
+generateTicket()
+
+SpotAssignmentStrategy
+findSpot()
+
+PricingStrategy
+calculatePrice()
+
+Payment
+processPayment()
+
+ParkingSpot
+assignVehicle()
+release()
+reserve()
+unreserve()
+
+
+
+class ParkingSpot {
+
+    String spotId;
+    SpotType spotType;
+
+    Vehicle currentVehicle;
+
+    boolean reserved;
+    String reservedUserId;
+
+    assignVehicle()
+    release()
+
+    reserve()
+    unreserve()
+
+    isAvailable()
+}
+
+
+class Floor{
+    String floorId,
+    List<ParkingSpot>spots;
+    addSpot();
+    getSpot();
+}
+
+class Ticket{
+Fields:
+- ticketNumber
+- vehicle
+- spot
+- entryTimestamp
+
+Methods:
+- getters
+}
+
 
 
 
