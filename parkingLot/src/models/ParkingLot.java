@@ -63,7 +63,7 @@ public class ParkingLot {
             throw new IllegalStateException("Ticket not found");
         }
 
-        int price = pricingStrategy.calculatePrice(ticket, exitTime);
+        long price = pricingStrategy.calculatePrice(ticket, exitTime);
 
         // TODO: Process payment using 'price'
 
