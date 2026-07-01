@@ -121,7 +121,7 @@ so overall flow according to my understanding for parking lot
 final
 ---------------
 
-Vehicle arrives
+Vehicle arrives // so vai ticket we will get vehical
 
 ↓
 

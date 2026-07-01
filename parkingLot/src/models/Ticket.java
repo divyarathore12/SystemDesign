@@ -1,16 +1,16 @@
 package models;
 
-import java.util.Date;
+import java.util.LocalDateTime;
 import java.util.UUID;
 
 public class Ticket {
 
     private ParkingSpot spot;
-    private Date date;
+    private LocalDateTime date;
     private Vehicle vehicle;
     private String ticketId;
 
-    public Ticket(ParkingSpot spot, Date date, Vehicle vehicle) {
+    public Ticket(ParkingSpot spot, LocalDateTime date, Vehicle vehicle) {
 
         if (spot == null) {
             throw new IllegalStateException("Spot is required");
@@ -34,7 +34,7 @@ public class Ticket {
         return ticketId;
     }
 
-    public Date getTicketStartingTime() {
+    public LocalDateTime getTicketStartingTime() {
         return date;
     }
 

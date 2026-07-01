@@ -1,7 +1,6 @@
 package models;
 
-import enums.SpotType;
-import enums.VehicleType;
+import enums.*;
 
 public class ParkingSpot {
 
@@ -9,12 +8,14 @@ public class ParkingSpot {
     private Vehicle currentVehicle;
     private boolean reserved;
     private SpotType spotType;
+    private SpotCategory spotCategory;
 
-    public ParkingSpot(String spotId, SpotType spotType) {
+    public ParkingSpot(String spotId, SpotType spotType, SpotCategory spotCategory) {
         this.spotId = spotId;
         this.spotType = spotType;
         this.reserved = false;
         this.currentVehicle = null;
+        this.spotCategory = spotCategory;
     }
 
     public String getSpotId() {
@@ -23,6 +24,10 @@ public class ParkingSpot {
 
     public SpotType getSpotType() {
         return this.spotType;
+    }
+
+    public SpotCategory getSpotCategory() {
+        return this.spotCategory;
     }
 
     public Vehicle getCurrentVehicle() {
@@ -92,5 +97,19 @@ public class ParkingSpot {
 
     public boolean isSpotPresent(String spotId) {
         return this.spotId.equals(spotId);
+    }
+
+    public boolean canFitVehicle(Vehicle vehicle) {
+        if (vehicle == null) {
+            throw new IllegalArgumentException("vehicle is required");
+        }
+        return ((vehicle.getVehicleType() == VehicleType.CAR && spotType == SpotType.CAR_SPOT)
+                || (vehicle.getVehicleType() == VehicleType.BIKE && spotType == SpotType.BIKE_SPOT)
+                || (vehicle.getVehicleType() == VehicleType.TRUCK && spotType == SpotType.TRUCK_SPOT));
+
+    }
+
+    public boolean isVIPSpotCategory() {
+        return spotCategory == SpotCategory.VIP;
     }
 }
